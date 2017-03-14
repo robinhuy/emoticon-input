@@ -1,2 +1,2 @@
-# emoji-input
+# Emoticon Input
 Chrome Extension

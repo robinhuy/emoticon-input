@@ -11,13 +11,6 @@
         body {
             font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
             font-size: 100%;
-        }
-
-        #status {
-            /* avoid an excessively wide status text */
-            white-space: pre;
-            text-overflow: ellipsis;
-            overflow: hidden;
             max-width: 400px;
         }
 
@@ -35,8 +28,20 @@
     <script src="popup.js"></script>
 </head>
 <body>
-<input type="text" name="search" id="search" placeholder="Search emoji ..."/>
-<span>&#x1F601;</span><span>&#x1F602;</span><span>&#x1F603;</span>
+<input type="text" name="search" id="search" placeholder="Search emoticon ..."/>
+
+<h3>Frequently emojis</h3>
+<div id="frequently-emoticons"></div>
+
+<h3>All emojis</h3>
+<div id="all-emoticons">
+    <span title="Smiley face">&#9786;</span>
+    <span title="Black smiley face">&#9787;</span>
+    <span title="Frowning face">&#9785;</span>
+    <span title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+    <span title="Face With Tears Of Joy">&#x1F602;</span>
+</div>
+
 </body>
 </html>
 
