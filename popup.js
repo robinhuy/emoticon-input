@@ -19,12 +19,12 @@ function handleOnclickEmoticon() {
             input.select();
             document.execCommand('copy');
 
-            // Update frequently used emoticons
+            // Update recently used emoticons
             setRecentlyEmoticons(JSON.stringify({
                 title: this.title,
                 characters: this.innerText
             }));
-            displayFrequentlyEmoticons();
+            displayRecentlyEmoticons();
 
             // Remove dummy input
             document.body.removeChild(input);
@@ -53,14 +53,14 @@ function filterEmoticons() {
 }
 
 /**
- * Get frequently used emoticons from local storage
+ * Get recently used emoticons from local storage
  */
 function getRecentlyEmoticons() {
     if (typeof(Storage) !== 'undefined') {
         var data;
 
         try {
-            data = JSON.parse(localStorage.getItem('frequently_used')) || [];
+            data = JSON.parse(localStorage.getItem('recently_used_emoticons')) || [];
         } catch (e) {
             data = [];
         }
@@ -85,19 +85,19 @@ function setRecentlyEmoticons(emoticon) {
     // Add this emoticon to top
     data.unshift(emoticon);
 
-    // Limit 10 frequently emoticons
+    // Limit 10 recently emoticons
     if (data.length > 10)
         data.pop();
 
     if (typeof(Storage) !== 'undefined') {
-        localStorage.setItem('frequently_used', JSON.stringify(data));
+        localStorage.setItem('recently_used_emoticons', JSON.stringify(data));
     }
 }
 
 /**
- * Display frequently emoticons
+ * Display recently emoticons
  */
-function displayFrequentlyEmoticons() {
+function displayRecentlyEmoticons() {
     var data = getRecentlyEmoticons();
 
     var emoticons = '';
@@ -111,10 +111,10 @@ function displayFrequentlyEmoticons() {
         }
     }
 
-    document.getElementById('frequently-emoticons').innerHTML = emoticons;
+    document.getElementById('recently-emoticons').innerHTML = emoticons;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    displayFrequentlyEmoticons();
+    displayRecentlyEmoticons();
     handleOnclickEmoticon();
 });
