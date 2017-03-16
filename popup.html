@@ -1,46 +1,220 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+
 <html>
 <head>
     <title>Emoji Input</title>
     <style>
-        body {
-            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-            font-size: 100%;
-            max-width: 400px;
+        * {
+            box-sizing: border-box;
         }
 
-        span {
+        body {
+            color: #252525;
+            font-family: 'Roboto',arial,sans-serif;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        #content, #footer, #recently-emoticons, #all-emoticons, h3, h4, .nav-tab, .tab-content {
+            float: left;
+            width: 100%;
+        }
+
+        #content {
+            padding: 15px 30px 15px 30px;
+            width: 400px;
+        }
+
+        #search-input {
+            margin: 2px;
+            padding-left: 5px;
+            height: 23px;
+            width: 70%;
+        }
+
+        #search-input:focus {
+            outline: 0;
+        }
+
+        .btn-search {
+            position: relative;
+            display: inline-block;
+            padding: 0 8px;
+            margin-right: 16px;
+            min-width: 54px;
+            font-size: 11px;
+            height: 27px;
+            line-height: 27px;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            color: #fff;
+            background-color: #4d90fe;
+            background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+            background-image: linear-gradient(top,#4d90fe,#4787ed);
+            border: 1px solid #3079ed;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline: 0;
+            cursor: default;
+            user-select: none;
+        }
+
+        .btn-search:hover {
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            background-color: #357ae8;
+            background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+            border: 1px solid #2f5bb7;
+        }
+
+        .btn-search:focus {
+            -webkit-box-shadow: inset 0 0 0 1px #fff;
+            box-shadow: inset 0 0 0 1px #fff;
+            border: rgba(0,0,0,0) solid 1px;
+            outline: rgba(0,0,0,0) 0;
+        }
+
+        .btn-search:active {
+            -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+            background: #357ae8;
+            border: 1px solid #2f5bb7;
+            border-top: 1px solid #2f5bb7;
+        }
+
+        #all-emoticons {
+            height: 200px;
+        }
+
+        .emoticon {
+            display: block;
+            float: left;
+            width: 34px;
+            height: 34px;
+            font-size: 20px;
+            line-height: 34px;
+            text-align: center;
             cursor: pointer;
+        }
+
+        .emoticon:hover {
+
+        }
+
+        .nav-tab {
+            padding-left: 0;
+            margin: 0 0 15px 0;
+            list-style: none;
+        }
+
+        .nav-tab .tab {
+            float: left;
+            margin-bottom: -1px;
+        }
+
+        .nav-tab .tab > a {
+            padding: 10px 15px;
+            margin-right: 2px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .nav-tab .tab > a:first-child {
+            padding-left: 0;
+        }
+
+        .nav-tab .tab.active > a {
+            color: #555;
+            cursor: default;
+        }
+
+        .nav-tab .tab.active > a:focus {
+            outline: 0;
+        }
+
+        .tab-content:not(.active) {
+            display: none;
+        }
+
+        #footer {
+            margin-top: 9px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            color: #636363;
+            font-size: 11px;
+            text-align: center;
         }
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
     <script src="popup.js"></script>
 </head>
+
 <body>
-<input type="text" name="search" id="search" placeholder="Search emoticon ..."/>
+<div id="content">
+    <!--<div id="search-bar">-->
+        <!--<input type="text" name="search-input" id="search-input" autofocus="">-->
+        <!--<div role="button" class="btn-search" tabindex="0" style="user-select: none;">Search</div>-->
+    <!--</div>-->
 
-<h3>Recently emoticons</h3>
-<div id="recently-emoticons"></div>
+    <h3>Recently emoticons</h3>
+    <div id="recently-emoticons"></div>
 
-<h3>All emoticons</h3>
-<div id="all-emoticons">
-    <span title="Smiley face">&#9786;</span>
-    <span title="Black smiley face">&#9787;</span>
-    <span title="Frowning face">&#9785;</span>
-    <span title="Grinning Face With Smiling Eyes">&#x1F601;</span>
-    <span title="Face With Tears Of Joy">&#x1F602;</span>
+    <h3>All emoticons</h3>
+    <ul class="nav-tab">
+        <li class="tab active"><a href="#standard-emoticons">Standard</a></li>
+        <li class="tab"><a href="#hand-emoticons">Hand</a></li>
+        <li class="tab"><a href="#people-emoticons">People</a></li>
+        <li class="tab"><a href="#cat-emoticons">Cat</a></li>
+        <li class="tab"><a href="#simple-emoticons">Simple</a></li>
+    </ul>
+
+    <div id="all-emoticons">
+        <div id="standard-emoticons" class="tab-content active">
+            <span class="emoticon" title="Frowning face">&#9785;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span>
+            <span class="emoticon" title="Frowning face">&#9785;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span><span class="emoticon" title="Frowning face">&#9785;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span>
+            <span class="emoticon" title="Frowning face">&#9785;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span>
+            <span class="emoticon" title="Frowning face">&#9785;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span>
+            <span class="emoticon" title="Frowning face">&#9785;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span>
+        </div>
+
+        <div id="hand-emoticons" class="tab-content">
+
+        </div>
+
+        <div id="people-emoticons" class="tab-content">
+
+        </div>
+
+        <div id="cat-emoticons" class="tab-content">
+
+        </div>
+
+        <div id="simple-emoticons" class="tab-content">
+            <span class="emoticon" title="Smiley face">&#9786;</span>
+            <span class="emoticon" title="Black smiley face">&#9787;</span>
+        </div>
+    </div>
 </div>
+
+<footer id="footer">
+    <span>© 2017 Robin Huy</span>
+</footer>
 
 </body>
 </html>

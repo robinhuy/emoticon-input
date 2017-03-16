@@ -3,10 +3,39 @@
  */
 
 /**
+ * Handle event when user click to Tab
+ */
+function handleOnclickTab() {
+    var tabs = document.getElementsByClassName('tab');
+
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener('click', function () {
+            // Remove class "active" from all tabs
+            for (var j = 0; j < tabs.length; j++) {
+                tabs[j].classList.remove('active');
+            }
+
+            // Add class "active" to chosen tab
+            this.classList.add('active');
+
+            // Hide all tab contents
+            var tabContents = document.getElementsByClassName('tab-content');
+            for (var k = 0; k < tabContents.length; k++) {
+                tabContents[k].style.display = 'none';
+            }
+
+            // Show chosen tab content
+            var tabId = this.children[0].getAttribute('href').replace('#', '');
+            document.getElementById(tabId).style.display = 'block';
+        });
+    }
+}
+
+/**
  * Handle event when user click to Emoticon
  */
 function handleOnclickEmoticon() {
-    var span = document.getElementsByTagName('span');
+    var span = document.getElementsByClassName('emoticon');
 
     for (var i = 0; i < span.length; i++) {
         span[i].addEventListener('click', function () {
@@ -29,11 +58,8 @@ function handleOnclickEmoticon() {
             // Remove dummy input
             document.body.removeChild(input);
 
-            // Notify to user
-            //todo: Hiển thị notify: Copied to clipboard
-
             // Close extension tab
-            //todo: Tắt cửa sổ extension
+            window.close();
         });
     }
 }
@@ -105,7 +131,7 @@ function displayRecentlyEmoticons() {
         var emoticon = {};
         try {
             emoticon = JSON.parse(data[i]);
-            emoticons += '<span title="' + emoticon.title + '">' + emoticon.characters + '</span>';
+            emoticons += '<span class="emoticon" title="' + emoticon.title + '">' + emoticon.characters + '</span>';
         } catch (err) {
             console.log(err);
         }
@@ -116,5 +142,6 @@ function displayRecentlyEmoticons() {
 
 document.addEventListener('DOMContentLoaded', function () {
     displayRecentlyEmoticons();
+    handleOnclickTab();
     handleOnclickEmoticon();
 });
