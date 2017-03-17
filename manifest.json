@@ -1,15 +1,22 @@
 {
   "manifest_version": 2,
 
-  "name": "Emoticon Input",
-  "description": "Allow input emoticon in every website",
+  "name": "Emoticon input everywhere",
+  "description": "Allow input emoticon in everywhere",
   "version": "1.0",
 
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "Emoticon Input"
+    "default_title": "Emoticon input everywhere"
   },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ],
 
   "permissions": [
     "activeTab"

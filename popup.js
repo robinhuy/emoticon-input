@@ -39,9 +39,11 @@ function handleOnclickEmoticon() {
 
     for (var i = 0; i < span.length; i++) {
         span[i].addEventListener('click', function () {
+            var self = this;
+
             // Create dummy input and set value to span's text
             var input = document.createElement('input');
-            input.value = this.innerText;
+            input.value = self.innerText;
             document.body.appendChild(input);
 
             // Select dummy input then copy selection
@@ -50,8 +52,8 @@ function handleOnclickEmoticon() {
 
             // Update recently used emoticons
             setRecentlyEmoticons(JSON.stringify({
-                title: this.title,
-                characters: this.innerText
+                title: self.title,
+                characters: self.innerText
             }));
             displayRecentlyEmoticons();
 
@@ -60,6 +62,14 @@ function handleOnclickEmoticon() {
 
             // Close extension tab
             window.close();
+
+            // Notification
+            chrome.tabs.query({active: true}, function (tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    action: 'copy emoticon',
+                    icon: self.innerText
+                });
+            });
         });
     }
 }
