@@ -10,7 +10,7 @@
 
         body {
             color: #252525;
-            font-family: 'Roboto',arial,sans-serif;
+            font-family: 'Roboto', arial, sans-serif;
             font-size: 14px;
             margin: 0;
         }
@@ -50,8 +50,8 @@
             white-space: nowrap;
             color: #fff;
             background-color: #4d90fe;
-            background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
-            background-image: linear-gradient(top,#4d90fe,#4787ed);
+            background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: linear-gradient(top, #4d90fe, #4787ed);
             border: 1px solid #3079ed;
             -webkit-border-radius: 2px;
             border-radius: 2px;
@@ -74,13 +74,13 @@
         .btn-search:focus {
             -webkit-box-shadow: inset 0 0 0 1px #fff;
             box-shadow: inset 0 0 0 1px #fff;
-            border: rgba(0,0,0,0) solid 1px;
-            outline: rgba(0,0,0,0) 0;
+            border: rgba(0, 0, 0, 0) solid 1px;
+            outline: rgba(0, 0, 0, 0) 0;
         }
 
         .btn-search:active {
-            -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+            -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
             background: #357ae8;
             border: 1px solid #2f5bb7;
             border-top: 1px solid #2f5bb7;
@@ -96,18 +96,20 @@
             width: 34px;
             height: 34px;
             font-size: 20px;
-            line-height: 34px;
+            line-height: 36px;
             text-align: center;
+            text-indent: -2px;
             cursor: pointer;
         }
 
         .emoticon:hover {
-
+            background-color: rgba(135, 195, 75, 0.5);
+            border-radius: 5px;
         }
 
         .nav-tab {
             padding-left: 0;
-            margin: 0 0 15px 0;
+            margin: 0 0 25px 0;
             list-style: none;
         }
 
@@ -117,19 +119,21 @@
         }
 
         .nav-tab .tab > a {
-            padding: 10px 15px;
+            padding: 10px 18px;
             margin-right: 2px;
             color: #555;
             text-decoration: none;
+            border-bottom: 3px solid #f4f4f4;
         }
 
-        .nav-tab .tab > a:first-child {
-            padding-left: 0;
+        .nav-tab .tab:last-child > a {
+            border-right: 0;
         }
 
         .nav-tab .tab.active > a {
             color: #555;
             cursor: default;
+            border-bottom: 3px solid #4CAF50;
         }
 
         .nav-tab .tab.active > a:focus {
@@ -156,122 +160,111 @@
 <body>
 <div id="content">
     <!--<div id="search-bar">-->
-        <!--<input type="text" name="search-input" id="search-input" autofocus="">-->
-        <!--<div role="button" class="btn-search" tabindex="0" style="user-select: none;">Search</div>-->
+    <!--<input type="text" name="search-input" id="search-input" autofocus="">-->
+    <!--<div role="button" class="btn-search" tabindex="0" style="user-select: none;">Search</div>-->
     <!--</div>-->
 
     <h3>Recently emoticons</h3>
-    <div id="recently-emoticons"></div>
+    <div id="recently-emoticons">&nbsp;</div>
 
     <h3>All emoticons</h3>
     <ul class="nav-tab">
         <li class="tab active"><a href="#standard-emoticons">Standard</a></li>
-        <li class="tab"><a href="#hand-emoticons">Hand</a></li>
-        <li class="tab"><a href="#people-emoticons">People</a></li>
+        <li class="tab"><a href="#person-emoticons">Person</a></li>
         <li class="tab"><a href="#cat-emoticons">Cat</a></li>
-        <li class="tab"><a href="#simple-emoticons">Simple</a></li>
+        <li class="tab"><a href="#monkey-emoticons">Monkey</a></li>
     </ul>
 
     <div id="all-emoticons">
         <div id="standard-emoticons" class="tab-content active">
-            <span class="emotion" title="Smiley face">&#9786;</span>
-	<span class="emotion" title="Black Smiley face">&#9787;</span>
-	<span class="emotion" title="Frowning face">&#9785;</span>
-	<span class="emotion" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
-	<span class="emotion" title="Face With Tears Of Joy">&#x1F602;</span>
-	<span class="emotion" title="Smiling Face With Open Mouth">&#x1F603;</span>
-	<span class="emotion" title="Smiling Face With Open Mouth And Smiling Eyes">&#x1F604;</span>
-	<span class="emotion" title="SSmiling Face With Open Mouth And Cold Sweat">&#x1F605;</span>
-	<span class="emotion" title="Smiling Face With Open Mouth And Tightly-closed Eyes">&#x1F606;</span>
-	<span class="emotion" title="Smiling Face With Halo">&#x1F607;</span>
-	<span class="emotion" title="Smiling Face With Horns">&#x1F608;</span>
-	<span class="emotion" title="Winking Face">&#x1F609;</span>
-	<span class="emotion" title="Smiling Face With Smiling Eyes">&#x1F60A;</span>
-	<span class="emotion" title="Face Savouring Delicious Food">&#x1F60B;</span>
-	<span class="emotion" title="Relieved Face">&#x1F60A;</span>
-	<span class="emotion" title="Smiling Face With Heart-shaped Eyes">&#x1F60D;</span>
-	<span class="emotion" title="Smiling Face With Sunglasses">&#x1F60E;</span>
-	<span class="emotion" title="Smirking Face">&#x1F60F;</span>
-	<span class="emotion" title="Neutral Face">&#x1F610;</span>
-	<span class="emotion" title="Expressionless Face">&#x1F611;</span>
-	<span class="emotion" title="Unamused Face">&#x1F612;</span>
-	<span class="emotion" title="Face With Cold Sweat">&#x1F613;</span>
-	<span class="emotion" title="Pensive Face">&#x1F614;</span>
-	<span class="emotion" title="Confused Face">&#x1F615;</span>
-	<span class="emotion" title="Confounded Face">&#x1F616;</span>
-	<span class="emotion" title="Kissing Face">&#x1F617;</span>
-	<span class="emotion" title="Face Throwing A Kiss">&#x1F618;</span>
-	<span class="emotion" title="Kissing Face With Closed Eyes">&#x1F61A;</span>
-	<span class="emotion" title="Face With Stuck-out Tongue">&#x1F61B;</span>
-	<span class="emotion" title="Face With Stuck-out Tongue And Winking Eye">&#x1F61C;</span>
-	<span class="emotion" title="Face With Stuck-out Tongue And Tightly-closed Eyes">&#x1F61D;</span>
-	<span class="emotion" title="Disappointed Face">&#x1F61E;</span>
-	<span class="emotion" title="Worried Face">&#x1F61F;</span>
-	<span class="emotion" title="Angry Face">&#x1F620;</span>
-	<span class="emotion" title="Pouting Face">&#x1F621;</span>
-	<span class="emotion" title="Crying Face">&#x1F622;</span>
-	<span class="emotion" title="Persevering Face">&#x1F623;</span>
-	<span class="emotion" title="Face With Look Of Triumph">&#x1F624;</span>
-	<span class="emotion" title="Disappointed But Relieved Face">&#x1F625;</span>
-	<span class="emotion" title="Frowning Face With Open Mouth">&#x1F626;</span>
-	<span class="emotion" title="Anguished Face">&#x1F627;</span>
-	<span class="emotion" title="Fearful Face">&#x1F628;</span>
-	<span class="emotion" title="Weary Face">&#x1F629;</span>
-	<span class="emotion" title="Sleepy Face">&#x1F62A;</span>
-	<span class="emotion" title="Tired Face">&#x1F62B;</span>
-	<span class="emotion" title="Grimacing Face">&#x1F62C;</span>
-	<span class="emotion" title="Loudly Crying Face">&#x1F62D;</span>
-	<span class="emotion" title="Face With Open Mouth">&#x1F62E;</span>
-	<span class="emotion" title="Hushed Face">&#x1F62F;</span>
-	<span class="emotion" title="Face With Open Mouth And Cold Sweat">&#x1F630;</span>
-	<span class="emotion" title="Face Screaming In Fear">&#x1F631;</span>
-	<span class="emotion" title="Astonished Face">&#x1F632;</span>
-	<span class="emotion" title="Flushed Face">&#x1F633;</span>
-	<span class="emotion" title="Sleeping Face">&#x1F634;</span>
-	<span class="emotion" title="Dizzy Face">&#x1F635;</span>
-	<span class="emotion" title="Face Without Mouth">&#x1F636;</span>
-	<span class="emotion" title="Face With Medical Mask">&#x1F637;</span>
-	<span class="emotion" title="Grinning Cat Face With Smiling Eyes">&#x1F638;</span>
-	<span class="emotion" title="Cat Face With Tears Of Joy">&#x1F639;</span>
-	<span class="emotion" title="Smiling Cat Face With Open Mouth">&#x1F63A;</span>
-	<span class="emotion" title="Smiling Cat Face With Heart-shaped Eyes">&#x1F63B;</span>
-	<span class="emotion" title="Cat Face With Wry Smile">&#x1F63C;</span>
-	<span class="emotion" title="Kissing Cat Face With Closed Eyes">&#x1F63D;</span>
-	<span class="emotion" title="Pouting Cat Face">&#x1F63E;</span>
-	<span class="emotion" title="Crying Cat Face">&#x1F63F;</span>
-	<span class="emotion" title="Slightly Frowning Face">&#x1F640;</span>
-	<span class="emotion" title="Crying Cat Face">&#x1F641;</span>
-	<span class="emotion" title="Slightly Smiling Face">&#x1F642;</span>
-	<span class="emotion" title="Upside-down Face">&#x1F643;</span>
-	<span class="emotion" title="Face With Rolling Eyes">&#x1F644;</span>
-	<span class="emotion" title="Face With No Good Gesture">&#x1F645;</span>
-	<span class="emotion" title="Face With Ok Gesture">&#x1F646;</span>
-	<span class="emotion" title="Person Bowing Deeply">&#x1F647;</span>
-	<span class="emotion" title="See-no-evil Monkey">&#x1F648;</span>
-	<span class="emotion" title="Hear-no-evil Monkey">&#x1F649;</span>
-	<span class="emotion" title="Speak-no-evil Monkey">&#x1F64A;</span>
-	<span class="emotion" title="Happy Person Raising One Hand">&#x1F64B;</span>
-	<span class="emotion" title="Person Raising Both Hands In Celebration">&#x1F64C;</span>
-	<span class="emotion" title="Person Frowning">&#x1F64D;</span>
-	<span class="emotion" title="Person With Pouting Face">&#x1F64E;</span>
-	<span class="emotion" title="Person With Folded Hands">&#x1F64F;</span>
+            <span class="emoticon" title="Grinning Face With Smiling Eyes">&#x1F601;</span>
+            <span class="emoticon" title="Face With Tears Of Joy">&#x1F602;</span>
+            <span class="emoticon" title="Smiling Face With Open Mouth">&#x1F603;</span>
+            <span class="emoticon" title="Smiling Face With Open Mouth And Smiling Eyes">&#x1F604;</span>
+            <span class="emoticon" title="SSmiling Face With Open Mouth And Cold Sweat">&#x1F605;</span>
+            <span class="emoticon" title="Smiling Face With Open Mouth And Tightly-closed Eyes">&#x1F606;</span>
+            <span class="emoticon" title="Smiling Face With Halo">&#x1F607;</span>
+            <span class="emoticon" title="Smiling Face With Horns">&#x1F608;</span>
+            <span class="emoticon" title="Winking Face">&#x1F609;</span>
+            <span class="emoticon" title="Smiling Face With Smiling Eyes">&#x1F60A;</span>
+            <span class="emoticon" title="Face Savouring Delicious Food">&#x1F60B;</span>
+            <span class="emoticon" title="Relieved Face">&#x1F60C;</span>
+            <span class="emoticon" title="Smiling Face With Heart-shaped Eyes">&#x1F60D;</span>
+            <span class="emoticon" title="Smiling Face With Sunglasses">&#x1F60E;</span>
+            <span class="emoticon" title="Smirking Face">&#x1F60F;</span>
+            <span class="emoticon" title="Neutral Face">&#x1F610;</span>
+            <span class="emoticon" title="Expressionless Face">&#x1F611;</span>
+            <span class="emoticon" title="Unamused Face">&#x1F612;</span>
+            <span class="emoticon" title="Face With Cold Sweat">&#x1F613;</span>
+            <span class="emoticon" title="Pensive Face">&#x1F614;</span>
+            <span class="emoticon" title="Confused Face">&#x1F615;</span>
+            <span class="emoticon" title="Confounded Face">&#x1F616;</span>
+            <span class="emoticon" title="Kissing Face">&#x1F617;</span>
+            <span class="emoticon" title="Face Throwing A Kiss">&#x1F618;</span>
+            <span class="emoticon" title="Kissing Face With Smiling Eyes">&#x1F619;</span>
+            <span class="emoticon" title="Kissing Face With Closed Eyes">&#x1F61A;</span>
+            <span class="emoticon" title="Face With Stuck-out Tongue">&#x1F61B;</span>
+            <span class="emoticon" title="Face With Stuck-out Tongue And Winking Eye">&#x1F61C;</span>
+            <span class="emoticon" title="Face With Stuck-out Tongue And Tightly-closed Eyes">&#x1F61D;</span>
+            <span class="emoticon" title="Disappointed Face">&#x1F61E;</span>
+            <span class="emoticon" title="Worried Face">&#x1F61F;</span>
+            <span class="emoticon" title="Angry Face">&#x1F620;</span>
+            <span class="emoticon" title="Pouting Face">&#x1F621;</span>
+            <span class="emoticon" title="Crying Face">&#x1F622;</span>
+            <span class="emoticon" title="Persevering Face">&#x1F623;</span>
+            <span class="emoticon" title="Face With Look Of Triumph">&#x1F624;</span>
+            <span class="emoticon" title="Disappointed But Relieved Face">&#x1F625;</span>
+            <span class="emoticon" title="Frowning Face With Open Mouth">&#x1F626;</span>
+            <span class="emoticon" title="Anguished Face">&#x1F627;</span>
+            <span class="emoticon" title="Fearful Face">&#x1F628;</span>
+            <span class="emoticon" title="Weary Face">&#x1F629;</span>
+            <span class="emoticon" title="Sleepy Face">&#x1F62A;</span>
+            <span class="emoticon" title="Tired Face">&#x1F62B;</span>
+            <span class="emoticon" title="Grimacing Face">&#x1F62C;</span>
+            <span class="emoticon" title="Loudly Crying Face">&#x1F62D;</span>
+            <span class="emoticon" title="Face With Open Mouth">&#x1F62E;</span>
+            <span class="emoticon" title="Hushed Face">&#x1F62F;</span>
+            <span class="emoticon" title="Face With Open Mouth And Cold Sweat">&#x1F630;</span>
+            <span class="emoticon" title="Face Screaming In Fear">&#x1F631;</span>
+            <span class="emoticon" title="Astonished Face">&#x1F632;</span>
+            <span class="emoticon" title="Flushed Face">&#x1F633;</span>
+            <span class="emoticon" title="Sleeping Face">&#x1F634;</span>
+            <span class="emoticon" title="Dizzy Face">&#x1F635;</span>
+            <span class="emoticon" title="Face Without Mouth">&#x1F636;</span>
+            <span class="emoticon" title="Face With Medical Mask">&#x1F637;</span>
+            <span class="emoticon" title="Slightly Frowning Face">&#x1F641;</span>
+            <span class="emoticon" title="Slightly Smiling Face">&#x1F642;</span>
+            <span class="emoticon" title="Upside-down Face">&#x1F643;</span>
+            <span class="emoticon" title="Face With Rolling Eyes">&#x1F644;</span>
         </div>
 
-        <div id="hand-emoticons" class="tab-content">
-
-        </div>
-
-        <div id="people-emoticons" class="tab-content">
-
+        <div id="person-emoticons" class="tab-content">
+            <span class="emoticon" title="Face With No Good Gesture">&#x1F645;</span>
+            <span class="emoticon" title="Face With Ok Gesture">&#x1F646;</span>
+            <span class="emoticon" title="Person Bowing Deeply">&#x1F647;</span>
+            <span class="emoticon" title="Happy Person Raising One Hand">&#x1F64B;</span>
+            <span class="emoticon" title="Person Raising Both Hands In Celebration">&#x1F64C;</span>
+            <span class="emoticon" title="Person Frowning">&#x1F64D;</span>
+            <span class="emoticon" title="Person With Pouting Face">&#x1F64E;</span>
+            <span class="emoticon" title="Person With Folded Hands">&#x1F64F;</span>
         </div>
 
         <div id="cat-emoticons" class="tab-content">
-
+            <span class="emoticon" title="Grinning Cat Face With Smiling Eyes">&#x1F638;</span>
+            <span class="emoticon" title="Cat Face With Tears Of Joy">&#x1F639;</span>
+            <span class="emoticon" title="Smiling Cat Face With Open Mouth">&#x1F63A;</span>
+            <span class="emoticon" title="Smiling Cat Face With Heart-shaped Eyes">&#x1F63B;</span>
+            <span class="emoticon" title="Cat Face With Wry Smile">&#x1F63C;</span>
+            <span class="emoticon" title="Kissing Cat Face With Closed Eyes">&#x1F63D;</span>
+            <span class="emoticon" title="Pouting Cat Face">&#x1F63E;</span>
+            <span class="emoticon" title="Crying Cat Face">&#x1F63F;</span>
+            <span class="emoticon" title="Weary Cat Face">&#x1F640;</span>
         </div>
 
-        <div id="simple-emoticons" class="tab-content">
-            <span class="emoticon" title="Smiley face">&#9786;</span>
-            <span class="emoticon" title="Black smiley face">&#9787;</span>
+        <div id="monkey-emoticons" class="tab-content">
+            <span class="emoticon" title="See-no-evil Monkey">&#x1F648;</span>
+            <span class="emoticon" title="Hear-no-evil Monkey">&#x1F649;</span>
+            <span class="emoticon" title="Speak-no-evil Monkey">&#x1F64A;</span>
         </div>
     </div>
 </div>
