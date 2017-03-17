@@ -60,15 +60,15 @@ function handleOnclickEmoticon() {
             // Remove dummy input
             document.body.removeChild(input);
 
-            // Close extension tab
-            window.close();
-
             // Notification
             chrome.tabs.query({active: true}, function (tabs) {
                 chrome.tabs.sendMessage(tabs[0].id, {
-                    action: 'copy emoticon',
+                    action: 'copy-emoticon',
                     icon: self.innerText
                 });
+
+                // Close extension tab
+                window.close();
             });
         });
     }
