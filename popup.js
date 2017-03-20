@@ -75,20 +75,6 @@ function handleOnclickEmoticon() {
 }
 
 /**
- * Search Emoticon by keyword
- */
-function searchEmoticon() {
-    //todo: Tìm kiếm emoticon theo title
-}
-
-/**
- * Filter Emoticons by categories
- */
-function filterEmoticons() {
-    //todo: Lọc emoticon theo danh mục
-}
-
-/**
  * Get recently used emoticons from local storage
  */
 function getRecentlyEmoticons() {
