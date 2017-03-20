@@ -4,7 +4,7 @@
   "name": "Emoticon input everywhere",
   "short_name": "Emoticon input",
   "description": "Allow input emoticon in everywhere",
-  "version": "1.1",
+  "version": "1.2",
   "author": "Robin Huy",
 
   "browser_action": {
